@@ -1,9 +1,11 @@
 import EnergyOrb from "../components/EnergyOrb";
 import FabricMesh from "../components/FabricMesh";
+import TradexIntro from "../components/TradexIntro";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-hidden">
+      <TradexIntro />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.14),_transparent_25%),radial-gradient(circle_at_bottom_right,_rgba(244,114,182,0.14),_transparent_26%),linear-gradient(135deg,_#030303_0%,_#09090b_55%,_#040404_100%)]" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-mesh-grid bg-[size:72px_72px] opacity-[0.06]" />
 
