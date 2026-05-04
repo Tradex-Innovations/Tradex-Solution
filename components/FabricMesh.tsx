@@ -46,7 +46,7 @@ function WavyPlane() {
     <mesh ref={meshRef} rotation={[-1.1, 0.1, 0.2]} scale={1.5}>
       <planeGeometry args={[5.8, 5.8, SEGMENTS, SEGMENTS]} />
       <meshBasicMaterial
-        color="#22d3ee"
+        color="#ed1c24"
         opacity={0.17}
         transparent
         wireframe

@@ -16,7 +16,7 @@ const config: Config = {
         heading: ["Space Grotesk", "Avenir Next", "Segoe UI", "sans-serif"],
       },
       boxShadow: {
-        glow: "0 24px 80px rgba(59, 130, 246, 0.18)",
+        glow: "0 24px 80px rgba(220, 38, 38, 0.22)",
       },
       backgroundImage: {
         "mesh-grid":

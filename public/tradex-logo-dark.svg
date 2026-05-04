@@ -1,0 +1,49 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="420" fill="none"/>
+  <text
+    x="70"
+    y="155"
+    fill="#F8FAFC"
+    font-family="Arial Black, Arial, Helvetica, sans-serif"
+    font-size="168"
+    font-weight="900"
+    letter-spacing="18"
+  >
+    TRAD
+  </text>
+  <text
+    x="748"
+    y="155"
+    fill="#ED1C24"
+    font-family="Arial Black, Arial, Helvetica, sans-serif"
+    font-size="168"
+    font-weight="900"
+    letter-spacing="18"
+  >
+    E
+  </text>
+  <text
+    x="900"
+    y="155"
+    fill="#F8FAFC"
+    font-family="Arial Black, Arial, Helvetica, sans-serif"
+    font-size="168"
+    font-weight="900"
+    letter-spacing="18"
+  >
+    X
+  </text>
+  <rect x="74" y="210" width="944" height="22" rx="2" fill="#ED1C24"/>
+  <text
+    x="296"
+    y="345"
+    fill="#F8FAFC"
+    font-family="Arial Black, Arial, Helvetica, sans-serif"
+    font-size="118"
+    font-weight="900"
+    letter-spacing="10"
+  >
+    SOLUTION
+  </text>
+</svg>
+

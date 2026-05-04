@@ -93,7 +93,7 @@ function SectionHeading({
 }) {
   return (
     <div className="max-w-3xl space-y-4">
-      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300/80">
+      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#ed1c24]/80">
         {eyebrow}
       </p>
       <h2 className="font-heading text-3xl font-semibold tracking-tight text-white sm:text-4xl">
@@ -107,20 +107,20 @@ function SectionHeading({
 export default function TradexSolutionPage() {
   return (
     <main className="relative isolate overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(8,145,178,0.22),_transparent_28%),radial-gradient(circle_at_80%_0%,_rgba(217,119,6,0.18),_transparent_22%),linear-gradient(180deg,_#050505_0%,_#09090b_48%,_#050505_100%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(237,28,36,0.2),_transparent_28%),radial-gradient(circle_at_80%_0%,_rgba(127,29,29,0.18),_transparent_24%),linear-gradient(180deg,_#030303_0%,_#09090b_48%,_#030303_100%)]" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-mesh-grid bg-[size:72px_72px] opacity-[0.08]" />
-      <div className="pointer-events-none absolute left-[-12rem] top-20 -z-10 h-80 w-80 rounded-full bg-cyan-500/12 blur-3xl animate-float" />
-      <div className="pointer-events-none absolute right-[-10rem] top-[32rem] -z-10 h-96 w-96 rounded-full bg-amber-500/10 blur-3xl animate-float-delayed" />
+      <div className="pointer-events-none absolute left-[-12rem] top-20 -z-10 h-80 w-80 rounded-full bg-[#ed1c24]/14 blur-3xl animate-float" />
+      <div className="pointer-events-none absolute right-[-10rem] top-[32rem] -z-10 h-96 w-96 rounded-full bg-red-950/35 blur-3xl animate-float-delayed" />
 
       <header className="sticky top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           <a href="/" className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-400/30 bg-white/5 font-heading text-lg font-semibold text-cyan-300 shadow-glow">
-              T
-            </span>
-            <div>
-              <p className="font-heading text-lg font-semibold text-white">Tradex Solution</p>
-              <p className="text-xs uppercase tracking-[0.32em] text-zinc-500">Digital apparel systems</p>
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-2 shadow-[0_16px_40px_rgba(0,0,0,0.28)] backdrop-blur">
+              <img
+                src="/tradex-logo-dark.svg"
+                alt="Tradex Solution"
+                className="h-11 w-auto sm:h-12"
+              />
             </div>
           </a>
 
@@ -138,7 +138,7 @@ export default function TradexSolutionPage() {
 
           <a
             href="#contact"
-            className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:border-cyan-300/40 hover:bg-cyan-300/10"
+            className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:border-[#ed1c24]/40 hover:bg-[#ed1c24]/10"
           >
             Start a Project
           </a>
@@ -165,7 +165,7 @@ export default function TradexSolutionPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
                 href="#solutions"
-                className="inline-flex items-center justify-center rounded-full bg-cyan-300 px-6 py-3 text-sm font-semibold text-black transition hover:bg-cyan-200"
+                className="inline-flex items-center justify-center rounded-full bg-[#ed1c24] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#ff2a33]"
               >
                 Explore Solutions
               </a>
@@ -179,14 +179,14 @@ export default function TradexSolutionPage() {
           </div>
 
           <div className="relative">
-            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-cyan-400/20 via-white/5 to-amber-300/10 blur-2xl" />
+            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[#ed1c24]/20 via-white/5 to-red-950/30 blur-2xl" />
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 shadow-2xl backdrop-blur-xl">
               <div className="mb-6 flex items-center justify-between">
                 <div>
                   <p className="text-sm uppercase tracking-[0.3em] text-zinc-500">Operational view</p>
                   <p className="mt-2 font-heading text-2xl font-semibold text-white">From sketch to cutting room</p>
                 </div>
-                <div className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-300">
+                <div className="rounded-full border border-[#ed1c24]/30 bg-[#ed1c24]/10 px-3 py-1 text-xs font-medium text-red-200">
                   Live workflow
                 </div>
               </div>
@@ -210,8 +210,8 @@ export default function TradexSolutionPage() {
                 ))}
               </div>
 
-              <div className="mt-6 rounded-3xl border border-white/10 bg-gradient-to-r from-cyan-400/12 to-transparent p-5">
-                <p className="text-sm uppercase tracking-[0.26em] text-cyan-200/80">
+              <div className="mt-6 rounded-3xl border border-white/10 bg-gradient-to-r from-[#ed1c24]/12 to-transparent p-5">
+                <p className="text-sm uppercase tracking-[0.26em] text-red-300/80">
                   Time to market
                 </p>
                 <div className="mt-3 flex items-end justify-between gap-6">
@@ -250,7 +250,7 @@ export default function TradexSolutionPage() {
           {solutions.map((solution) => (
             <article
               key={solution.title}
-              className="group rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-white/[0.06]"
+              className="group rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 transition duration-300 hover:-translate-y-1 hover:border-[#ed1c24]/30 hover:bg-white/[0.06]"
             >
               <div className="inline-flex rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs uppercase tracking-[0.3em] text-zinc-400">
                 Solution
@@ -262,7 +262,7 @@ export default function TradexSolutionPage() {
               <ul className="mt-8 space-y-3 text-sm text-zinc-300">
                 {solution.points.map((point) => (
                   <li key={point} className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-cyan-300" />
+                    <span className="mt-1 h-2 w-2 rounded-full bg-[#ed1c24]" />
                     <span>{point}</span>
                   </li>
                 ))}
@@ -286,7 +286,7 @@ export default function TradexSolutionPage() {
                 key={item.step}
                 className="rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-6"
               >
-                <p className="text-sm font-semibold tracking-[0.24em] text-cyan-300/80">
+                <p className="text-sm font-semibold tracking-[0.24em] text-[#ed1c24]/80">
                   {item.step}
                 </p>
                 <h3 className="mt-6 font-heading text-2xl font-semibold text-white">
@@ -318,8 +318,8 @@ export default function TradexSolutionPage() {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-cyan-400/10 via-white/[0.04] to-white/[0.03] p-8">
-              <p className="text-xs uppercase tracking-[0.3em] text-cyan-300/80">Vision</p>
+            <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#ed1c24]/12 via-white/[0.04] to-white/[0.03] p-8">
+              <p className="text-xs uppercase tracking-[0.3em] text-[#ed1c24]/80">Vision</p>
               <h3 className="mt-4 font-heading text-3xl font-semibold text-white">
                 Technology that helps apparel businesses lead instead of react.
               </h3>
@@ -374,7 +374,7 @@ export default function TradexSolutionPage() {
                   Tell us what you need to improve.
                 </h3>
               </div>
-              <div className="hidden rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs font-medium text-amber-200 md:block">
+              <div className="hidden rounded-full border border-[#ed1c24]/30 bg-[#ed1c24]/10 px-3 py-1 text-xs font-medium text-red-200 md:block">
                 Reply in 24-48 hours
               </div>
             </div>
@@ -386,7 +386,7 @@ export default function TradexSolutionPage() {
                   <input
                     type="text"
                     placeholder="Your name"
-                    className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-cyan-300/40"
+                    className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-[#ed1c24]/40"
                   />
                 </label>
                 <label className="grid gap-2 text-sm text-zinc-300">
@@ -394,7 +394,7 @@ export default function TradexSolutionPage() {
                   <input
                     type="email"
                     placeholder="you@company.com"
-                    className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-cyan-300/40"
+                    className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-[#ed1c24]/40"
                   />
                 </label>
               </div>
@@ -404,7 +404,7 @@ export default function TradexSolutionPage() {
                 <input
                   type="text"
                   placeholder="Company or brand"
-                  className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-cyan-300/40"
+                  className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-[#ed1c24]/40"
                 />
               </label>
 
@@ -413,7 +413,7 @@ export default function TradexSolutionPage() {
                 <textarea
                   rows={5}
                   placeholder="What are you trying to improve across design, fit, development, or production?"
-                  className="rounded-[1.5rem] border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-cyan-300/40"
+                  className="rounded-[1.5rem] border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-[#ed1c24]/40"
                 />
               </label>
 
@@ -437,4 +437,3 @@ export default function TradexSolutionPage() {
     </main>
   );
 }
-
