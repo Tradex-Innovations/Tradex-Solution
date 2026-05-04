@@ -10,15 +10,12 @@ export default function Home() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-mesh-grid bg-[size:72px_72px] opacity-[0.06]" />
 
       <section className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
-        <a
-          href="/tradex-solution"
-          className="group relative isolate flex min-h-[50vh] items-end overflow-hidden border-b border-white/10 px-6 py-10 transition duration-500 hover:bg-[#ed1c24]/10 lg:min-h-screen lg:border-b-0 lg:border-r lg:px-10 lg:py-12"
-        >
+        <div className="group relative isolate flex min-h-[50vh] items-end overflow-hidden border-b border-white/10 px-6 py-10 transition duration-500 hover:bg-[#ed1c24]/10 lg:min-h-screen lg:border-b-0 lg:border-r lg:px-10 lg:py-12">
           <FabricMesh />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(237,28,36,0.2),_transparent_35%)] opacity-70 transition duration-500 group-hover:opacity-100" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/35 to-black/80" />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(237,28,36,0.16),transparent_40%,rgba(0,0,0,0.5))]" />
-          <div className="relative z-10 w-full max-w-[40rem]">
+          <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_top_left,_rgba(237,28,36,0.2),_transparent_35%)] opacity-70 transition duration-500 group-hover:opacity-100" />
+          <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/10 via-black/35 to-black/80" />
+          <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(135deg,rgba(237,28,36,0.16),transparent_40%,rgba(0,0,0,0.5))]" />
+          <a href="/tradex-solution" className="relative z-10 block w-full max-w-[40rem]">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-red-400/85">
               Tradex Solution
             </p>
@@ -29,29 +26,27 @@ export default function Home() {
               Enter the full Tradex Solution experience for design workflows, cutting systems, and
               implementation-led business transformation.
             </p>
-          </div>
-        </a>
+          </a>
+        </div>
 
-        <a
-          href="/tradex-innovation"
-          className="group relative isolate flex min-h-[50vh] items-end overflow-hidden px-6 py-10 transition duration-500 hover:bg-[rgba(127,29,29,0.15)] lg:min-h-screen lg:px-10 lg:py-12"
-        >
+        <div className="group relative isolate flex min-h-[50vh] items-end overflow-hidden px-6 py-10 transition duration-500 hover:bg-[rgba(127,29,29,0.15)] lg:min-h-screen lg:px-10 lg:py-12">
           <EnergyOrb />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(127,29,29,0.25),_transparent_35%)] opacity-70 transition duration-500 group-hover:opacity-100" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/35 to-black/80" />
-          <div className="absolute inset-0 bg-[linear-gradient(225deg,rgba(127,29,29,0.2),transparent_38%,rgba(0,0,0,0.48))]" />
-          <div className="relative z-10 w-full max-w-[40rem]">
+          <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_top_right,_rgba(127,29,29,0.25),_transparent_35%)] opacity-70 transition duration-500 group-hover:opacity-100" />
+          <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/10 via-black/35 to-black/80" />
+          <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(225deg,rgba(127,29,29,0.2),transparent_38%,rgba(0,0,0,0.48))]" />
+          <a href="/tradex-innovation" className="relative z-10 block w-full max-w-[40rem]">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-red-300/85">
               Tradex Innovation
             </p>
             <h2 className="mt-5 font-heading text-4xl font-semibold leading-[0.94] tracking-tight text-white sm:text-5xl lg:min-h-[5.1em] lg:text-6xl">
-             A gateway for building intelligent digital systems and solutions.
+              A gateway for building intelligent digital systems and solutions.
             </h2>
             <p className="mt-5 max-w-[36rem] text-base leading-8 text-zinc-300 sm:text-lg">
-A focused space for building and launching solutions that improve real-world operations through modern technology and system-driven thinking.
+              A focused space for building and launching solutions that improve real-world
+              operations through modern technology and system-driven thinking.
             </p>
-          </div>
-        </a>
+          </a>
+        </div>
       </section>
     </main>
   );
