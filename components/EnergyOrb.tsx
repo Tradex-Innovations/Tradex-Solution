@@ -33,8 +33,8 @@ function OrbCluster() {
         <mesh>
           <sphereGeometry args={[0.92, 48, 48]} />
           <meshStandardMaterial
-            color="#f472b6"
-            emissive="#f472b6"
+            color="#ed1c24"
+            emissive="#ed1c24"
             emissiveIntensity={1.35}
             metalness={0.08}
             opacity={0.92}
@@ -46,7 +46,7 @@ function OrbCluster() {
         <mesh ref={shellRef} scale={1.3}>
           <sphereGeometry args={[0.92, 32, 32]} />
           <meshBasicMaterial
-            color="#f472b6"
+            color="#7f1d1d"
             opacity={0.1}
             transparent
             wireframe
@@ -99,8 +99,8 @@ export default function EnergyOrb() {
         }}
       >
         <ambientLight intensity={0.5} />
-        <pointLight color="#f472b6" intensity={16} position={[1.8, 1.5, 2.4]} />
-        <pointLight color="#c084fc" intensity={8} position={[-2, -1.5, 1.5]} />
+        <pointLight color="#ed1c24" intensity={16} position={[1.8, 1.5, 2.4]} />
+        <pointLight color="#7f1d1d" intensity={8} position={[-2, -1.5, 1.5]} />
         <OrbCluster />
       </Canvas>
     </div>
