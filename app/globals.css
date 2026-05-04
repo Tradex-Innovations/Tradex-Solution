@@ -2,6 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Performance optimizations for animations */
+@layer utilities {
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
+  }
+  
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize rendering for animated elements */
+[class*="animate-"],
+[class*="motion-"] {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animation completes to free resources */
+@media (prefers-reduced-motion: no-preference) {
+  [class*="animate-"]:not(:hover):not(:focus) {
+    will-change: auto;
+  }
+}
+
 :root {
   color-scheme: dark;
 }

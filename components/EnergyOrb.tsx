@@ -2,7 +2,7 @@
 
 import { Float } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Group, Mesh } from "three";
 
 function OrbCluster() {
@@ -58,12 +58,45 @@ function OrbCluster() {
 }
 
 export default function EnergyOrb() {
+  const [isClient, setIsClient] = useState(false);
+  const [hasWebGL, setHasWebGL] = useState(true);
+
+  useEffect(() => {
+    setIsClient(true);
+    
+    // Check WebGL support
+    try {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) {
+        setHasWebGL(false);
+        console.warn('WebGL not supported - 3D content will not render');
+      }
+    } catch (e) {
+      setHasWebGL(false);
+      console.warn('WebGL check failed:', e);
+    }
+  }, []);
+
+  // Don't render on server or if WebGL is not supported
+  if (!isClient || !hasWebGL) {
+    return null;
+  }
+
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
       <Canvas
         camera={{ fov: 40, position: [0, 0, 4.2] }}
         dpr={[1, 2]}
-        gl={{ alpha: true, antialias: true }}
+        gl={{ 
+          alpha: true, 
+          antialias: true,
+          powerPreference: "high-performance",
+          failIfMajorPerformanceCaveat: false
+        }}
+        onCreated={({ gl }) => {
+          gl.setClearColor(0x000000, 0);
+        }}
       >
         <ambientLight intensity={0.5} />
         <pointLight color="#f472b6" intensity={16} position={[1.8, 1.5, 2.4]} />
