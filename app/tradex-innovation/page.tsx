@@ -1,46 +1,58 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { CountUpAnimation } from "@/components/CountUpAnimation";
-import { CosmicBackground } from "@/components/CosmicBackground";
-import { CosmicParticles } from "@/components/CosmicParticles";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { NebulaBackground } from "@/components/NebulaBackground";
 import { CinematicSection, CinematicStagger, CinematicStaggerItem, FloatingElement, CameraDrift } from "@/components/CinematicSection";
-import { GlassMonolith, FloatingPanel } from "@/components/GlassMonolith";
+import { GlassMonolith } from "@/components/GlassMonolith";
 import { CinematicHero, MonumentalText } from "@/components/CinematicHero";
-import { AtmosphericOverlay, LightFragments, DistantPlanet } from "@/components/AtmosphericOverlay";
-
-const stats = [
-  { value: "120+", label: "Systems delivered across multiple business environments.", numericValue: 120 },
-  { value: "10+", label: "Industries supported with scalable digital solutions.", numericValue: 10 },
-  { value: "2–6w", label: "Typical delivery cycle for production-ready systems.", numericValue: null },
-];
 
 const solutions = [
   {
-    title: "Custom System Development",
-    description: "Design and build tailored software systems aligned with operational and business needs.",
-    points: ["Architecture design", "Scalable backend systems", "Secure and reliable deployments"],
+    title: "AI & Machine Learning",
+    description: "Integrate cutting-edge AI solutions to automate processes, enhance decision-making, and unlock insights from your data.",
+    points: ["Custom AI model development", "Natural language processing", "Computer vision & image recognition", "Predictive analytics & forecasting"],
   },
   {
-    title: "Digital Product Engineering",
-    description: "Create modern digital products with performance, usability, and scalability in mind.",
-    points: ["Full-stack development", "User-focused interfaces", "Continuous iteration and improvement"],
+    title: "Mobile App Development",
+    description: "Build native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android.",
+    points: ["Native iOS & Android apps", "React Native & Flutter", "Progressive Web Apps (PWA)", "App Store optimization & deployment"],
   },
   {
-    title: "Process Automation",
-    description: "Streamline workflows and reduce manual effort with intelligent automation solutions.",
-    points: ["Workflow automation", "System integrations", "Efficiency optimization"],
+    title: "Digital Planning Systems",
+    description: "Build intelligent digital planning and scheduling systems that optimize workflows, resources, and operations in real-time.",
+    points: ["Resource allocation & scheduling", "Workflow automation", "Real-time collaboration tools", "Custom dashboard & reporting"],
+  },
+  {
+    title: "Web Application Development",
+    description: "Create powerful, responsive web applications using modern frameworks and best practices for performance and scalability.",
+    points: ["React, Next.js & Vue.js", "Node.js & Python backends", "Real-time applications", "Responsive & accessible design"],
+  },
+  {
+    title: "Inventory & Asset Management",
+    description: "Streamline operations with intelligent inventory tracking, asset management, and automated workflow systems.",
+    points: ["Real-time inventory tracking", "Barcode & RFID integration", "Automated reordering systems", "Multi-location management"],
+  },
+  {
+    title: "Enterprise Solutions",
+    description: "Build robust enterprise systems that streamline operations, improve efficiency, and scale with your business growth.",
+    points: ["ERP & CRM systems", "Business process automation", "Legacy system modernization", "Enterprise API integration"],
   },
 ];
 
 const services = [
-  "System architecture",
-  "Product engineering",
-  "Automation workflows",
-  "API integrations",
-  "Deployment and scaling",
+  "AI Integration & Machine Learning",
+  "Mobile App Development",
+  "Digital Planning & Scheduling Systems",
+  "Web Application Development",
+  "API Development & Integration",
+  "UI/UX Design & Prototyping",
+  "Database Design & Optimization",
+  "Business Intelligence & Reporting",
+  "Inventory Management Systems",
+  "Real-time Tracking Solutions",
+  "Data Analytics & Visualization",
+  "Microservices Architecture",
 ];
 
 const differentiators = [
@@ -121,12 +133,8 @@ export default function TradexInnovationPage() {
 
   return (
     <main className="relative isolate overflow-hidden bg-[#000308]">
-      {/* Cosmic environment layers */}
-      <CosmicBackground />
-      <CosmicParticles />
-      <AtmosphericOverlay />
-      <LightFragments />
-      <DistantPlanet />
+      {/* 3D Immersive Photorealistic Nebula Background */}
+      <NebulaBackground />
 
       {/* Cinematic header with glass morphism */}
       <motion.header 
@@ -231,28 +239,6 @@ export default function TradexInnovationPage() {
               </motion.div>
             </div>
         </CameraDrift>
-
-        {/* Stats with cinematic reveal */}
-        <CinematicStagger className="mt-24 grid w-full gap-6 md:grid-cols-3" staggerDelay={0.2}>
-          {stats.map((stat) => (
-            <CinematicStaggerItem key={stat.value}>
-              <GlassMonolith variant="default" glowColor="cyan">
-                <FloatingElement intensity="subtle">
-                  <p className="font-heading text-4xl font-bold text-white">
-                    {stat.numericValue ? (
-                      <>
-                        <CountUpAnimation end={stat.numericValue} duration={2.5} />+
-                      </>
-                    ) : (
-                      stat.value
-                    )}
-                  </p>
-                  <p className="mt-4 text-sm leading-6 text-zinc-400">{stat.label}</p>
-                </FloatingElement>
-              </GlassMonolith>
-            </CinematicStaggerItem>
-          ))}
-        </CinematicStagger>
       </CinematicHero>
 
       {/* SOLUTIONS SECTION */}
@@ -264,10 +250,19 @@ export default function TradexInnovationPage() {
           />
         </CinematicSection>
 
-        <CinematicStagger className="mt-16 grid gap-8 lg:grid-cols-3" staggerDelay={0.2}>
+        <CinematicStagger className="mt-16 grid gap-8 lg:grid-cols-2 xl:grid-cols-3" staggerDelay={0.2}>
           {solutions.map((solution, index) => (
             <CinematicStaggerItem key={solution.title}>
-              <GlassMonolith variant="premium" glowColor={index === 0 ? "blue" : index === 1 ? "cyan" : "indigo"}>
+              <GlassMonolith 
+                variant="premium" 
+                glowColor={
+                  index === 0 ? "blue" : 
+                  index === 1 ? "cyan" : 
+                  index === 2 ? "indigo" :
+                  index === 3 ? "blue" :
+                  index === 4 ? "cyan" : "indigo"
+                }
+              >
                 <FloatingElement intensity="subtle">
                   <div className="space-y-6">
                     <div className="inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-cyan-400/80 backdrop-blur-sm">
@@ -346,16 +341,16 @@ export default function TradexInnovationPage() {
               <GlassMonolith variant="default" glowColor="blue">
                 <div className="space-y-6">
                   <p className="text-xs uppercase tracking-[0.3em] text-zinc-500">Services</p>
-                  <div className="grid gap-3">
+                  <div className="grid gap-3 sm:grid-cols-2">
                     {services.map((service, index) => (
                       <motion.div
                         key={service}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        transition={{ duration: 0.6, delay: index * 0.05 }}
                         whileHover={{ x: 6, backgroundColor: "rgba(0,0,0,0.5)" }}
-                        className="rounded-2xl border border-white/10 bg-black/30 px-5 py-3 text-sm text-zinc-300 backdrop-blur-sm transition-all duration-300"
+                        className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-xs text-zinc-300 backdrop-blur-sm transition-all duration-300"
                       >
                         {service}
                       </motion.div>
