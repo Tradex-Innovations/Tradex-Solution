@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { CountUpAnimation } from "@/components/CountUpAnimation";
 import { ParallaxBackground } from "@/components/ParallaxBackground";
+import { getAssetPath } from "@/lib/utils";
 
 const stats = [
   { value: "20+", label: "Years across apparel technology, workflow transformation, and implementation.", numericValue: 20 },
@@ -229,7 +230,7 @@ export default function TradexSolutionPage() {
           <Link href="/" className="flex items-center gap-3">
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-2 shadow-[0_16px_40px_rgba(0,0,0,0.28)] backdrop-blur">
               <img
-                src="/Gemini_Generated_Image_v1z8tzv1z8tzv1z8-removebg-preview.png"
+                src={getAssetPath("/Gemini_Generated_Image_v1z8tzv1z8tzv1z8-removebg-preview.png")}
                 alt="Tradex Solution"
                 className="h-11 w-auto sm:h-12"
               />
@@ -369,7 +370,7 @@ export default function TradexSolutionPage() {
                   <div className="mb-6 flex items-center justify-between">
                     <div className="rounded-xl bg-white px-6 py-4 shadow-lg">
                       <img
-                        src="/optitex.png"
+                        src={getAssetPath("/optitex.png")}
                         alt="Optitex"
                         className="h-16 w-auto transition-all duration-300 group-hover:scale-105"
                       />
@@ -421,7 +422,7 @@ export default function TradexSolutionPage() {
                   <div className="mb-6 flex items-center justify-between">
                     <div className="rounded-xl bg-white px-6 py-4 shadow-lg">
                       <img
-                        src="/sinajet.png"
+                        src={getAssetPath("/sinajet.png")}
                         alt="Sinajet"
                         className="h-16 w-auto transition-all duration-300 group-hover:scale-105"
                       />

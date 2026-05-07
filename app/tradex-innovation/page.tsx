@@ -6,6 +6,7 @@ import { NebulaBackground } from "@/components/NebulaBackground";
 import { CinematicSection, CinematicStagger, CinematicStaggerItem, FloatingElement, CameraDrift } from "@/components/CinematicSection";
 import { GlassMonolith } from "@/components/GlassMonolith";
 import { CinematicHero, MonumentalText } from "@/components/CinematicHero";
+import { getAssetPath } from "@/lib/utils";
 
 const solutions = [
   {
@@ -149,7 +150,7 @@ export default function TradexInnovationPage() {
               className="rounded-2xl border border-white/10 bg-white/[0.02] px-3 py-2 shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-xl"
             >
               <img
-                src="/Gemini_Generated_Image_v1z8tzv1z8tzv1z8-removebg-preview.png"
+                src={getAssetPath("/Gemini_Generated_Image_v1z8tzv1z8tzv1z8-removebg-preview.png")}
                 alt="Tradex Innovation"
                 className="h-11 w-auto sm:h-12"
               />

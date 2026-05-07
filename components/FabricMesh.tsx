@@ -44,6 +44,21 @@ export default function FabricMesh() {
       
       if (!mounted || !containerRef.current) return;
 
+      // Wait for container to have dimensions
+      const checkDimensions = () => {
+        if (!containerRef.current) return false;
+        const rect = containerRef.current.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0;
+      };
+
+      // Retry until container has dimensions
+      if (!checkDimensions()) {
+        requestAnimationFrame(() => {
+          if (mounted) initViewer();
+        });
+        return;
+      }
+
       // Clear any existing content
       containerRef.current.innerHTML = '';
 
