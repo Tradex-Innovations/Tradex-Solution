@@ -93,7 +93,7 @@ const navItems = [
 ];
 
 /**
- * Hero operational card with floating animation and metric count-up
+ * Hero image with animation
  */
 function HeroCard() {
   const ref = useRef(null);
@@ -102,76 +102,42 @@ function HeroCard() {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 60, rotateX: 10 }}
-      animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : { opacity: 0, y: 60, rotateX: 10 }}
-      transition={{ duration: 1, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+      initial={{ opacity: 0, x: 100 }}
+      animate={isInView ? { 
+        opacity: 1, 
+        x: 0,
+        y: [0, -20, 0]
+      } : { 
+        opacity: 0, 
+        x: 100 
+      }}
+      transition={{ 
+        duration: 1.2, 
+        delay: 0.5, 
+        ease: [0.21, 0.47, 0.32, 0.98],
+        y: {
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }
+      }}
       className="relative"
     >
-      {/* Pulsing glow behind card */}
-      <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[#ed1c24]/20 via-white/5 to-red-950/30 blur-2xl animate-pulse-glow" />
-      
       <motion.div
-        whileHover={{ y: -8 }}
-        transition={{ duration: 0.3 }}
-        className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 shadow-2xl backdrop-blur-xl"
+        animate={{
+          rotate: [0, 1, 0, -1, 0]
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
       >
-        <div className="mb-6 flex items-center justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-zinc-500">Operational view</p>
-            <p className="mt-2 font-heading text-2xl font-semibold text-white">From sketch to cutting room</p>
-          </div>
-          <div className="rounded-full border border-[#ed1c24]/30 bg-[#ed1c24]/10 px-3 py-1 text-xs font-medium text-red-200">
-            Live workflow
-          </div>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2">
-          {[
-            "Virtual sample approvals",
-            "Pattern accuracy and grading",
-            "Connected production handoff",
-            "Material-conscious cutting",
-          ].map((item, index) => (
-            <motion.div
-              key={item}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-              className="group rounded-3xl border border-white/10 bg-black/30 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#ed1c24]/20 hover:bg-black/40"
-            >
-              <p className="text-xs uppercase tracking-[0.28em] text-zinc-500">
-                0{index + 1}
-              </p>
-              <p className="mt-8 font-heading text-xl text-white">{item}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Metric card with count-up animation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 1 }}
-          className="relative mt-6 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-[#ed1c24]/12 to-transparent p-5"
-        >
-          {/* Subtle animated gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#ed1c24]/0 via-[#ed1c24]/5 to-[#ed1c24]/0 bg-[length:200%_100%] animate-flow" />
-          
-          <div className="relative">
-            <p className="text-sm uppercase tracking-[0.26em] text-red-300/80">
-              Time to market
-            </p>
-            <div className="mt-3 flex items-end justify-between gap-6">
-              <p className="max-w-sm text-sm leading-6 text-zinc-300">
-                Shorten approvals and reduce physical sampling by moving more decisions into
-                a digitally connected workflow.
-              </p>
-              <p className="font-heading text-4xl font-semibold text-white">
-                -<CountUpAnimation end={35} duration={2.5} />%
-              </p>
-            </div>
-          </div>
-        </motion.div>
+        <img
+          src={getAssetPath("/hero image.png")}
+          alt="Tradex Solution Hero"
+          className="w-full h-auto object-contain drop-shadow-2xl"
+        />
       </motion.div>
     </motion.div>
   );
@@ -259,7 +225,7 @@ export default function TradexSolutionPage() {
       </header>
 
       <section className="mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center gap-16 px-6 pb-20 pt-16 lg:px-8 lg:pb-28 lg:pt-24">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center w-full">
           {/* Hero text with staggered animation */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -317,7 +283,7 @@ export default function TradexSolutionPage() {
             </motion.div>
           </motion.div>
 
-          {/* Operational card with floating animation */}
+          {/* Hero image with animation */}
           <HeroCard />
         </div>
 
