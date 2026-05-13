@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { NebulaBackground } from "@/components/NebulaBackground";
@@ -8,8 +9,18 @@ import { GlassMonolith } from "@/components/GlassMonolith";
 import { CinematicHero, MonumentalText } from "@/components/CinematicHero";
 import { getAssetPath } from "@/lib/utils";
 import { useState, useEffect } from "react";
+import garmentLineImage from "@/assets/images/garmentline.png";
+import machineServiceImage from "@/assets/images/machine-service-system.png";
+import carServiceImage from "@/assets/images/car-service-center.png";
 
-const solutions = [
+type Solution = {
+  title: string;
+  description: string;
+  points: string[];
+  color: string;
+};
+
+const solutions: Solution[] = [
   {
     title: "AI & Machine Learning",
     description: "Integrate cutting-edge AI solutions to automate processes, enhance decision-making, and unlock insights from your data.",
@@ -42,7 +53,7 @@ const solutions = [
   },
 ];
 
-function SolutionsCarousel({ solutions }: { solutions: typeof solutions }) {
+function SolutionsCarousel({ solutions }: { solutions: Solution[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -117,7 +128,7 @@ function SolutionsCarousel({ solutions }: { solutions: typeof solutions }) {
               glowColor={currentSolution.color as "blue" | "cyan" | "indigo"}
             >
               <FloatingElement intensity="subtle">
-                <div className="space-y-6 min-h-[400px] flex flex-col justify-between">
+                <div className="flex min-h-[400px] flex-col justify-between space-y-8">
                   <div className="space-y-6">
                     <div className="inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-cyan-400/80 backdrop-blur-sm">
                       Solution {currentIndex + 1} of {solutions.length}
@@ -127,10 +138,10 @@ function SolutionsCarousel({ solutions }: { solutions: typeof solutions }) {
                     </h3>
                     <p className="text-lg leading-8 text-zinc-400">{currentSolution.description}</p>
                   </div>
-                  
+
                   <ul className="space-y-4 pt-4 text-sm text-zinc-300">
                     {currentSolution.points.map((point, idx) => (
-                      <motion.li 
+                      <motion.li
                         key={point}
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -460,6 +471,16 @@ export default function TradexInnovationPage() {
             <GlassMonolith variant="premium" glowColor="cyan">
               <FloatingElement intensity="subtle">
                 <div className="space-y-6">
+                  <div className="relative overflow-hidden rounded-[1.5rem] border border-cyan-400/15 bg-black/35 shadow-[0_22px_60px_rgba(0,0,0,0.45)]">
+                    <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.16),_transparent_36%),linear-gradient(180deg,_transparent_58%,_rgba(0,0,0,0.45)_100%)]" />
+                    <Image
+                      src={garmentLineImage}
+                      alt="Garment line monitoring system dashboard"
+                      className="relative aspect-[16/9] w-full object-cover opacity-90"
+                      placeholder="blur"
+                      sizes="(min-width: 1280px) 360px, (min-width: 1024px) 45vw, 100vw"
+                    />
+                  </div>
                   <div className="inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-cyan-400/80 backdrop-blur-sm">
                     Production Tracking
                   </div>
@@ -493,6 +514,16 @@ export default function TradexInnovationPage() {
             <GlassMonolith variant="premium" glowColor="blue">
               <FloatingElement intensity="subtle">
                 <div className="space-y-6">
+                  <div className="relative overflow-hidden rounded-[1.5rem] border border-blue-400/15 bg-black/35 shadow-[0_22px_60px_rgba(0,0,0,0.45)]">
+                    <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.16),_transparent_36%),linear-gradient(180deg,_transparent_58%,_rgba(0,0,0,0.45)_100%)]" />
+                    <Image
+                      src={machineServiceImage}
+                      alt="Machine service management system dashboard"
+                      className="relative aspect-[16/9] w-full object-cover opacity-90"
+                      placeholder="blur"
+                      sizes="(min-width: 1280px) 360px, (min-width: 1024px) 45vw, 100vw"
+                    />
+                  </div>
                   <div className="inline-flex rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-blue-400/80 backdrop-blur-sm">
                     Service Operations
                   </div>
@@ -526,6 +557,16 @@ export default function TradexInnovationPage() {
             <GlassMonolith variant="premium" glowColor="indigo">
               <FloatingElement intensity="subtle">
                 <div className="space-y-6">
+                  <div className="relative overflow-hidden rounded-[1.5rem] border border-indigo-400/15 bg-black/35 shadow-[0_22px_60px_rgba(0,0,0,0.45)]">
+                    <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_top_left,_rgba(99,102,241,0.16),_transparent_36%),linear-gradient(180deg,_transparent_58%,_rgba(0,0,0,0.45)_100%)]" />
+                    <Image
+                      src={carServiceImage}
+                      alt="Car service center monitoring system dashboard"
+                      className="relative aspect-[16/9] w-full object-cover opacity-90"
+                      placeholder="blur"
+                      sizes="(min-width: 1280px) 360px, (min-width: 1024px) 45vw, 100vw"
+                    />
+                  </div>
                   <div className="inline-flex rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-indigo-400/80 backdrop-blur-sm">
                     Workshop Management
                   </div>
