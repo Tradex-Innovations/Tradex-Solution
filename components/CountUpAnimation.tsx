@@ -15,35 +15,45 @@ interface CountUpAnimationProps {
  * Triggers when element enters viewport
  */
 export function CountUpAnimation({ end, duration = 2, suffix = "", className = "" }: CountUpAnimationProps) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(end);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "0px" });
   const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    hasAnimated.current = false;
+    setCount(end);
+  }, [end]);
 
   useEffect(() => {
     if (!isInView || hasAnimated.current) return;
     hasAnimated.current = true;
 
-    const startTime = Date.now();
-    const endTime = startTime + duration * 1000;
+    const startValue = end > 0 ? 1 : 0;
+    setCount(startValue);
 
-    const updateCount = () => {
-      const now = Date.now();
+    const startTime = performance.now();
+    const endTime = startTime + duration * 1000;
+    let animationFrame = 0;
+
+    const updateCount = (now: number) => {
       const progress = Math.min((now - startTime) / (endTime - startTime), 1);
       
       // Easing function for smooth deceleration
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       
-      setCount(Math.floor(easeOutQuart * end));
+      setCount(Math.max(startValue, Math.floor(easeOutQuart * end)));
 
       if (progress < 1) {
-        requestAnimationFrame(updateCount);
+        animationFrame = requestAnimationFrame(updateCount);
       } else {
         setCount(end);
       }
     };
 
-    requestAnimationFrame(updateCount);
+    animationFrame = requestAnimationFrame(updateCount);
+
+    return () => cancelAnimationFrame(animationFrame);
   }, [isInView, end, duration]);
 
   return (
