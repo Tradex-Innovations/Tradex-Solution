@@ -261,7 +261,7 @@ const navItems = [
 ];
 
 const contactDetails = [
-  { label: "Address", value: "16/1 Maligawa Road, Ethul Kotte, Kotte, Sri Lanka" },
+  { label: "Address", value: "No 24, Baddegana Road, Kotte, Sri Lanka" },
   { label: "Email", value: "info@tradexinnovation.com" },
   { label: "Phone", value: "+94 77 874 5847" },
   { label: "Hours", value: "Monday - Friday: 8 AM to 5 PM | Saturday: 8 AM to 12 PM" },
