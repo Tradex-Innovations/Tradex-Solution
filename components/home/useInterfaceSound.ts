@@ -4,12 +4,19 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 type Sound = "click" | "fabric" | "transition";
 const preferenceKey = "tradex-sound";
+const preferenceEvent = "tradex-sound-change";
 
 export function useInterfaceSound() {
   const [enabled, setEnabled] = useState(true);
   const enabledRef = useRef(true);
   const contextRef = useRef<AudioContext | null>(null);
   const lastPlayed = useRef(0);
+  const stop = useCallback(() => {
+    const context = contextRef.current;
+    contextRef.current = null;
+    if (context && context.state !== "closed")
+      void context.close().catch(() => {});
+  }, []);
 
   useEffect(() => {
     try {
@@ -21,16 +28,27 @@ export function useInterfaceSound() {
     const pause = () => {
       if (document.hidden) void contextRef.current?.suspend();
     };
+    const sync = (event: Event) => {
+      const next = (event as CustomEvent<boolean>).detail;
+      enabledRef.current = next;
+      setEnabled(next);
+      if (!next) stop();
+    };
+    window.addEventListener(preferenceEvent, sync);
     document.addEventListener("visibilitychange", pause);
     return () => {
       document.removeEventListener("visibilitychange", pause);
+      window.removeEventListener(preferenceEvent, sync);
       void contextRef.current?.close();
       contextRef.current = null;
     };
-  }, []);
+  }, [stop]);
 
   const play = useCallback(
-    (sound: Sound = "click", options: { allowResume?: boolean } = {}) => {
+    (
+      sound: Sound = "click",
+      options: { allowResume?: boolean; duration?: number } = {},
+    ) => {
       if (!enabledRef.current || document.hidden || !window.AudioContext)
         return false;
       const now = performance.now();
@@ -49,7 +67,11 @@ export function useInterfaceSound() {
           const gain = context.createGain();
           gain.connect(context.destination);
           if (sound === "fabric") {
-            const length = Math.floor(context.sampleRate * 0.3);
+            const duration = Math.max(
+              0.3,
+              Math.min(options.duration ?? 0.3, 6),
+            );
+            const length = Math.floor(context.sampleRate * duration);
             const buffer = context.createBuffer(1, length, context.sampleRate);
             const samples = buffer.getChannelData(0);
             for (let i = 0; i < length; i++)
@@ -63,8 +85,11 @@ export function useInterfaceSound() {
             source.connect(filter);
             filter.connect(gain);
             gain.gain.setValueAtTime(0, time);
-            gain.gain.linearRampToValueAtTime(0.045, time + 0.035);
-            gain.gain.exponentialRampToValueAtTime(0.001, time + 0.3);
+            gain.gain.linearRampToValueAtTime(
+              duration > 1 ? 0.035 : 0.045,
+              time + Math.min(duration / 8, 0.3),
+            );
+            gain.gain.exponentialRampToValueAtTime(0.001, time + duration);
             source.onended = () => {
               source.disconnect();
               filter.disconnect();
@@ -110,8 +135,7 @@ export function useInterfaceSound() {
     [],
   );
 
-  const toggle = useCallback(() => {
-    const next = !enabledRef.current;
+  const setSoundEnabled = useCallback((next: boolean) => {
     enabledRef.current = next;
     setEnabled(next);
     try {
@@ -119,9 +143,13 @@ export function useInterfaceSound() {
     } catch {
       /* Optional persistence. */
     }
+    window.dispatchEvent(new CustomEvent(preferenceEvent, { detail: next }));
+  }, []);
+  const toggle = useCallback(() => {
+    const next = !enabledRef.current;
+    setSoundEnabled(next);
     if (next) play("transition");
-    else void contextRef.current?.suspend();
-  }, [play]);
+  }, [play, setSoundEnabled]);
 
-  return { enabled, toggle, play };
+  return { enabled, toggle, play, stop, setSoundEnabled };
 }
