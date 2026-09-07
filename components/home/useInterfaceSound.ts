@@ -6,14 +6,14 @@ type Sound = "click" | "fabric" | "transition";
 const preferenceKey = "tradex-sound";
 
 export function useInterfaceSound() {
-  const [enabled, setEnabled] = useState(false);
-  const enabledRef = useRef(false);
+  const [enabled, setEnabled] = useState(true);
+  const enabledRef = useRef(true);
   const contextRef = useRef<AudioContext | null>(null);
   const lastPlayed = useRef(0);
 
   useEffect(() => {
     try {
-      enabledRef.current = localStorage.getItem(preferenceKey) === "on";
+      enabledRef.current = localStorage.getItem(preferenceKey) !== "off";
       setEnabled(enabledRef.current);
     } catch {
       /* Audio still works when storage is unavailable. */

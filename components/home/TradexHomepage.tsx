@@ -99,11 +99,15 @@ function PatternDrawing() {
 
 function SystemDrawing() {
   return (
-    <div className="tx-system-drawing" aria-hidden="true">
+    <div
+      className="tx-system-drawing"
+      role="img"
+      aria-label="Concept dashboard preview with sample planning, inventory and analytics data"
+    >
       <div className="tx-system-toolbar">
-        <span className="tx-system-mark">t.</span>
-        <span>Custom product workspace</span>
-        <span className="tx-system-status">● Live</span>
+        <span className="tx-system-mark">t/</span>
+        <span>Workspace / Operations</span>
+        <span className="tx-system-status">Demo data</span>
       </div>
       <div className="tx-system-body">
         <div className="tx-system-sidebar">
@@ -113,32 +117,36 @@ function SystemDrawing() {
         </div>
         <div className="tx-system-content">
           <div className="tx-system-topline">
-            <span>Built for your workflow.</span>
-            <span>Product ↗</span>
+            <span>A plan for every moving part.</span>
+            <span>Planning ↗</span>
           </div>
           <div className="tx-system-metrics">
             <div>
-              <small>Web & mobile</small>
-              <strong>Custom apps</strong>
+              <small>Scheduled jobs</small>
+              <strong>12</strong>
             </div>
             <div>
-              <small>Intelligence</small>
-              <strong>AI & data</strong>
+              <small>In progress</small>
+              <strong>04</strong>
             </div>
             <div>
-              <small>Operations</small>
-              <strong>IoT systems</strong>
+              <small>Team members</small>
+              <strong>08</strong>
             </div>
           </div>
           <div className="tx-chart">
             <div className="tx-chart-title">
-              Software shaped around your business<span>↗</span>
+              Planning / Inventory / Analytics<span>↗</span>
             </div>
-            <svg viewBox="0 0 400 110" preserveAspectRatio="none">
-              <path d="M0 28H400M0 63H400M0 98H400" stroke="#e3e7ee" />
+            <svg
+              viewBox="0 0 400 110"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path d="M0 28H400M0 63H400M0 98H400" stroke="#dce0d4" />
               <path
                 d="M0 93C30 90 25 65 65 73S110 45 140 57 173 13 211 31 250 9 283 26 327 8 360 13 380 1 400 3"
-                stroke="#4564db"
+                stroke="#dc3c2b"
                 strokeWidth="2.5"
                 fill="none"
               />
@@ -229,8 +237,7 @@ export default function TradexHomepage() {
               POSSIBILITIES.
             </span>
             <span>
-              COLOMBO, LK <span className="tx-plus">↗</span> BUILT FOR
-              EVERYWHERE
+              KOTTE, LK <span className="tx-plus">↗</span> BUILT FOR EVERYWHERE
             </span>
           </div>
           <div className="tx-hero-main">
@@ -245,16 +252,25 @@ export default function TradexHomepage() {
                 <br className="tx-desktop-break" /> development to move your
                 business forward.
               </p>
-              <a
-                className="tx-round-link"
-                href="#divisions"
-                onClick={() => play()}
-              >
-                <span className="tx-circle">
-                  <Arrow />
-                </span>
-                Explore Tradex
-              </a>
+              <div className="tx-hero-actions">
+                <Link
+                  className="tx-round-link"
+                  href="/tradex-solution"
+                  onClick={() => play()}
+                >
+                  <span className="tx-circle">
+                    <Arrow />
+                  </span>
+                  Explore Optitex &amp; apparel technology
+                </Link>
+                <Link
+                  className="tx-hero-software-link"
+                  href="/tradex-innovation"
+                  onClick={() => play()}
+                >
+                  Build custom software <Arrow diagonal />
+                </Link>
+              </div>
               <div className="tx-hero-footnote">
                 <span>01 — 03</span> A new perspective on what’s possible.
               </div>
@@ -386,7 +402,7 @@ export default function TradexHomepage() {
             </div>
             <div className="tx-division-copy">
               <span className="tx-division-eyebrow">
-                APPAREL & MANUFACTURING
+                EXCLUSIVE OPTITEX PARTNER
               </span>
               <h3>
                 Design better.
@@ -394,11 +410,11 @@ export default function TradexHomepage() {
                 Produce smarter.
               </h3>
               <p>
-                Digital design, virtual sampling, and precision cutting. Made
-                for the way you work.
+                Official Optitex software licenses from your exclusive partner,
+                plus Sinajet digital cutting equipment.
               </p>
               <span className="tx-division-link">
-                Explore apparel technology{" "}
+                Explore Optitex &amp; apparel technology{" "}
                 <span>
                   <Arrow diagonal />
                 </span>
@@ -448,25 +464,43 @@ export default function TradexHomepage() {
           <p>
             Specialist expertise.
             <br />
-            <span>Established technology partners.</span>
+            <span>Apparel software and equipment.</span>
           </p>
           <div>
-            <span className="tx-partner-logo">
-              <Image
-                src={getAssetPath("/optitex.png")}
-                alt="Optitex"
-                width={500}
-                height={500}
-              />
-            </span>
-            <span className="tx-partner-logo">
-              <Image
-                src={getAssetPath("/sinajet.png")}
-                alt="Sinajet"
-                width={500}
-                height={500}
-              />
-            </span>
+            <Link
+              className="tx-partner-item"
+              href="/tradex-solution#optitex"
+              onClick={() => play()}
+            >
+              <span className="tx-partner-logo">
+                <Image
+                  src={getAssetPath("/optitex.png")}
+                  alt="Optitex"
+                  width={500}
+                  height={500}
+                />
+              </span>
+              <span className="tx-partner-label">
+                Exclusive Optitex partner
+              </span>
+            </Link>
+            <Link
+              className="tx-partner-item"
+              href="/tradex-solution#sinajet"
+              onClick={() => play()}
+            >
+              <span className="tx-partner-logo tx-partner-logo-sinajet">
+                <Image
+                  src={getAssetPath("/sinajet.png")}
+                  alt="Sinajet"
+                  width={500}
+                  height={500}
+                />
+              </span>
+              <span className="tx-partner-label">
+                Digital cutting equipment
+              </span>
+            </Link>
           </div>
           <span className="tx-partner-note">
             APPAREL TECHNOLOGY

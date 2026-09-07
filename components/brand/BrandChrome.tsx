@@ -47,7 +47,7 @@ export function BrandHeader({
   enabled: boolean;
   toggle: () => void;
   play: () => void;
-  active?: "solution";
+  active?: "solution" | "innovation";
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
@@ -100,7 +100,11 @@ export function BrandHeader({
         >
           Solution
         </Link>
-        <Link href="/tradex-innovation" onClick={() => play()}>
+        <Link
+          aria-current={active === "innovation" ? "page" : undefined}
+          href="/tradex-innovation"
+          onClick={() => play()}
+        >
           Custom software
         </Link>
         <a href="#about" onClick={() => play()}>
@@ -154,7 +158,10 @@ export function BrandHeader({
           >
             Solution <Arrow />
           </Link>
-          <Link href="/tradex-innovation">
+          <Link
+            aria-current={active === "innovation" ? "page" : undefined}
+            href="/tradex-innovation"
+          >
             Custom software <Arrow />
           </Link>
           <a href="#about">

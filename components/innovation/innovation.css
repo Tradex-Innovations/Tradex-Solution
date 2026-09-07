@@ -1,0 +1,1394 @@
+.ti-page {
+  --ti-sage: #e6e9df;
+}
+.ti-page h1,
+.ti-page h2,
+.ti-page h3,
+.ti-page h4,
+.ti-page p {
+  margin: 0;
+}
+.ti-page em {
+  color: var(--tx-red);
+  font-style: normal;
+}
+.ti-page .tx-desktop-nav [aria-current="page"] {
+  color: var(--tx-red);
+}
+.ti-mono {
+  font:
+    10px/1.7 "SFMono-Regular",
+    Consolas,
+    monospace;
+  letter-spacing: 1.1px;
+  font-weight: 400;
+}
+.ti-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.ti-hero {
+  padding: 28px 4.2% 65px;
+}
+.ti-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.ti-topline > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ti-topline b {
+  color: var(--tx-red);
+  margin: 0 15px;
+  font-weight: 400;
+}
+.ti-hero-layout {
+  display: grid;
+  grid-template-columns: 0.94fr 1.06fr;
+  gap: 5%;
+  align-items: center;
+  min-height: 665px;
+  padding: 65px 0 12px;
+}
+.ti-hero-kicker {
+  display: block;
+  margin-bottom: 30px;
+  color: var(--tx-muted);
+  font-size: 9px;
+}
+.ti-hero h1 {
+  font-size: clamp(54px, 5.35vw, 95px);
+  letter-spacing: -0.07em;
+  font-weight: 500;
+  line-height: 1.07;
+}
+.ti-hero-copy > p {
+  max-width: 425px;
+  color: var(--tx-muted);
+  font-size: 17px;
+  line-height: 1.85;
+  margin-top: 28px;
+}
+.ti-actions {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.ti-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: var(--tx-ink);
+  color: var(--tx-paper);
+  padding: 18px 22px;
+  min-height: 54px;
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.ti-button svg,
+.ti-link svg {
+  flex-shrink: 0;
+}
+.ti-button:hover {
+  background: var(--tx-red);
+  transform: translateY(-2px);
+}
+.ti-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+.ti-link:hover {
+  color: var(--tx-red);
+}
+.ti-hero-footnote {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font:
+    9px/1.6 "SFMono-Regular",
+    Consolas,
+    monospace;
+  letter-spacing: 1px;
+  color: var(--tx-muted);
+  margin-top: 55px;
+}
+.ti-hero-footnote i {
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--tx-red);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ti-demo {
+  min-width: 0;
+  padding: 23px;
+  background: var(--ti-sage);
+  border: 1px solid #d7ddce;
+  position: relative;
+}
+.ti-demo::before,
+.ti-demo::after {
+  content: "+";
+  position: absolute;
+  font: 15px monospace;
+  color: #7c8672;
+}
+.ti-demo::before {
+  top: -9px;
+  left: -5px;
+}
+.ti-demo::after {
+  bottom: -9px;
+  right: -5px;
+}
+.ti-demo-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: var(--tx-muted);
+  font-size: 8px;
+  margin-bottom: 22px;
+}
+.ti-dashboard {
+  background: #f8f8f3;
+  border: 1px solid #cbd1c1;
+  box-shadow: 0 18px 35px -25px #45523d66;
+}
+.ti-dashboard-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 18px;
+  border-bottom: 1px solid #dce0d4;
+  font-size: 11px;
+}
+.ti-app-mark {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  padding-right: 3px;
+}
+.ti-app-mark span {
+  color: var(--tx-red);
+}
+.ti-workspace-path {
+  color: var(--tx-muted);
+}
+.ti-demo-badge {
+  margin-left: auto;
+  border: 1px solid #cbd1c1;
+  padding: 4px 7px;
+  font: 8px/1.5 monospace;
+  white-space: nowrap;
+  color: #606955;
+}
+.ti-dashboard-tabs {
+  display: flex;
+  padding: 0 18px;
+  gap: 24px;
+  border-bottom: 1px solid #dce0d4;
+}
+.ti-dashboard-tabs button {
+  position: relative;
+  padding: 15px 0;
+  font-size: 11px;
+  color: var(--tx-muted);
+}
+.ti-tab-index {
+  font: 8px monospace;
+  margin-right: 7px;
+}
+.ti-dashboard-tabs button[aria-selected="true"] {
+  color: var(--tx-ink);
+}
+.ti-dashboard-tabs button[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  background: var(--tx-red);
+  height: 2px;
+}
+.ti-dashboard-tabs button:hover {
+  color: var(--tx-red);
+}
+.ti-dashboard-body {
+  padding: 23px 18px 15px;
+  min-height: 382px;
+}
+.ti-dashboard-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+.ti-dashboard-title .ti-mono {
+  font-size: 7px;
+  color: var(--tx-muted);
+  letter-spacing: 0.8px;
+}
+.ti-dashboard-title h3 {
+  font-size: 19px;
+  line-height: 1.4;
+  letter-spacing: -0.65px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+.ti-dashboard-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--tx-red);
+  flex-shrink: 0;
+}
+.ti-demo-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #dce0d4;
+  border-bottom: 1px solid #dce0d4;
+  padding: 12px 0;
+  margin-bottom: 20px;
+}
+.ti-demo-metrics > div {
+  padding: 0 12px;
+  border-right: 1px solid #dce0d4;
+}
+.ti-demo-metrics > div:first-child {
+  padding-left: 0;
+}
+.ti-demo-metrics > div:last-child {
+  border: 0;
+}
+.ti-demo-metrics span,
+.ti-chart-top > div > span {
+  display: block;
+  font-size: 9px;
+  color: var(--tx-muted);
+}
+.ti-demo-metrics strong {
+  display: block;
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 5px;
+  letter-spacing: -1px;
+}
+.ti-demo-metrics small {
+  font-size: 10px;
+  color: var(--tx-muted);
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.ti-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  min-height: 128px;
+}
+.ti-board-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  color: var(--tx-muted);
+  margin-bottom: 10px;
+}
+.ti-board-label i {
+  width: 4px;
+  height: 4px;
+  background: #a6ad9d;
+  border-radius: 50%;
+}
+.ti-board > div:nth-child(2) .ti-board-label i {
+  background: var(--tx-red);
+}
+.ti-task {
+  background: #eff1e8;
+  border: 1px solid #dce0d4;
+  padding: 10px;
+}
+.ti-task-code {
+  font: 7px monospace;
+  letter-spacing: 0.5px;
+  color: var(--tx-muted);
+}
+.ti-task h4 {
+  font-size: 10px;
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 7px 0 4px;
+}
+.ti-task p {
+  font-size: 8px;
+  color: var(--tx-muted);
+}
+.ti-task-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  font-size: 7px;
+  margin-top: 12px;
+}
+.ti-task-footer b {
+  font: 7px monospace;
+  background: #dce2d2;
+  padding: 4px;
+}
+.ti-demo-action {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 10px;
+  padding-top: 15px;
+  color: var(--tx-ink);
+}
+.ti-demo-action:hover {
+  color: var(--tx-red);
+}
+.ti-demo-action svg {
+  width: 16px;
+  height: 16px;
+}
+.ti-demo-feedback {
+  font-size: 9px;
+  line-height: 1.6;
+  color: var(--tx-muted);
+  margin-top: 12px !important;
+  min-height: 16px;
+}
+.ti-search-label {
+  display: block;
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+.ti-inventory-search {
+  width: 100%;
+  border: 1px solid #cbd1c1;
+  background: transparent;
+  padding: 10px 12px;
+  font-size: 12px;
+  border-radius: 0;
+  margin-bottom: 17px;
+}
+.ti-inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+.ti-inventory-table th {
+  text-align: left;
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--tx-muted);
+  padding: 7px 0;
+  border-bottom: 1px solid #dce0d4;
+}
+.ti-inventory-table td {
+  padding: 11px 4px 11px 0;
+  border-bottom: 1px solid #dce0d4;
+}
+.ti-inventory-table td:first-child span {
+  display: block;
+  font: 8px monospace;
+  color: var(--tx-muted);
+  margin-top: 4px;
+}
+.ti-stock,
+.ti-stock-low {
+  font-size: 9px;
+  padding: 4px 6px;
+  background: #e4e9d9;
+  white-space: nowrap;
+}
+.ti-stock-low {
+  color: #ae3326;
+  background: #f1dfd4;
+}
+.ti-chart-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-top: 6px;
+}
+.ti-chart-top strong {
+  display: block;
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  margin-top: 8px;
+}
+.ti-period {
+  display: flex;
+  border: 1px solid #cbd1c1;
+}
+.ti-period button {
+  font-size: 10px;
+  padding: 7px 10px;
+}
+.ti-period button[aria-pressed="true"] {
+  background: var(--tx-ink);
+  color: var(--tx-paper);
+}
+.ti-chart {
+  display: flex;
+  gap: 15px;
+  height: 182px;
+  margin-top: 10px;
+}
+.ti-chart > div {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+.ti-bar-track {
+  height: 155px;
+  border-bottom: 1px solid #bbc3b0;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    to top,
+    transparent 0,
+    transparent 37px,
+    #e1e5d9 38px,
+    #e1e5d9 39px
+  );
+}
+.ti-bar-track span {
+  width: 65%;
+  background: #8c9b7b;
+  transition: height 0.35s ease;
+}
+.ti-chart > div:nth-last-child(2) .ti-bar-track span {
+  background: var(--tx-red);
+}
+.ti-chart > div > span {
+  font: 9px monospace;
+  display: block;
+  margin-top: 9px;
+  color: var(--tx-muted);
+}
+.ti-dashboard-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid #dce0d4;
+  padding: 12px 18px;
+  font: 6px/1.6 monospace;
+  letter-spacing: 0.6px;
+  color: var(--tx-muted);
+}
+.ti-dashboard-footer i {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--tx-red);
+  margin-right: 4px;
+}
+.ti-demo-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 19px;
+  color: #616c55;
+}
+.ti-demo-bottom .ti-mono {
+  font-size: 8px;
+}
+.ti-demo-bottom > span:last-child {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: 10px;
+}
+.ti-demo-bottom svg {
+  width: 15px;
+  height: 15px;
+  transform: rotate(-90deg);
+}
+.ti-panel-enter {
+  animation: ti-panel-in 0.3s ease both;
+}
+@keyframes ti-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.ti-capability-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  border-top: 1px solid var(--tx-line);
+  border-bottom: 1px solid var(--tx-line);
+  padding: 30px 0;
+  margin: 0 4.2%;
+}
+.ti-capability-strip > .ti-mono {
+  font-size: 9px;
+  color: var(--tx-muted);
+}
+.ti-capability-strip > span:not(.ti-mono) {
+  font-size: 16px;
+  letter-spacing: -0.4px;
+}
+.ti-section {
+  padding: 95px 4.2%;
+}
+.ti-section h2 {
+  font-size: clamp(36px, 3.8vw, 64px);
+  line-height: 1.14;
+  font-weight: 500;
+  letter-spacing: -0.055em;
+}
+.ti-section-heading {
+  display: grid;
+  grid-template-columns: 0.9fr 2fr 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 60px;
+}
+.ti-section-heading > .ti-mono {
+  padding-top: 8px;
+}
+.ti-section-heading h2 em {
+  color: #7a8370;
+}
+.ti-section-heading > p {
+  color: var(--tx-muted);
+  font-size: 14px;
+  line-height: 1.85;
+  padding-top: 8px;
+}
+.ti-project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  align-items: start;
+}
+.ti-project {
+  min-width: 0;
+  border-bottom: 1px solid var(--tx-line);
+}
+.ti-project-image {
+  background: #e4e8de;
+  padding: 18px;
+  border: 1px solid #d8dfcf;
+  overflow: hidden;
+}
+.ti-project-number {
+  display: block;
+  color: var(--tx-muted);
+  font-size: 8px;
+  margin-bottom: 20px;
+}
+.ti-project-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  box-shadow: 0 12px 18px -10px #56644866;
+  transition: transform 0.4s;
+}
+@media (hover: hover) {
+  .ti-project:hover .ti-project-image img {
+    transform: translateY(-3px);
+  }
+}
+.ti-project-copy {
+  padding: 28px 0 0;
+}
+.ti-project-copy > .ti-mono {
+  color: var(--tx-red);
+  font-size: 9px;
+}
+.ti-project h3 {
+  font-size: 25px;
+  letter-spacing: -0.8px;
+  line-height: 1.25;
+  font-weight: 500;
+  margin: 15px 0;
+}
+.ti-project-copy > p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--tx-muted);
+  min-height: 48px;
+}
+.ti-project summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  list-style: none;
+  font-size: 12px;
+  padding: 22px 0;
+}
+.ti-project summary::-webkit-details-marker {
+  display: none;
+}
+.ti-project summary > span {
+  font-size: 24px;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+.ti-project details[open] summary > span {
+  transform: rotate(45deg);
+}
+.ti-project-expanded {
+  border-top: 1px solid var(--tx-line);
+  padding: 22px 0;
+}
+.ti-project-expanded h4 {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.ti-project-expanded p {
+  font-size: 13px;
+  color: var(--tx-muted);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.ti-project-expanded ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 0;
+  margin: 0 0 14px;
+}
+.ti-project-expanded li {
+  border: 1px solid var(--tx-line);
+  padding: 5px 8px;
+  font-size: 10px;
+  color: var(--tx-muted);
+}
+.ti-services {
+  background: var(--ti-sage);
+}
+.ti-services-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.45fr;
+  gap: 8%;
+}
+.ti-service-tabs {
+  display: flex;
+  flex-direction: column;
+}
+.ti-service-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 26px 0;
+  text-align: left;
+  border-top: 1px solid #c0c8b5;
+  font-size: 21px;
+  letter-spacing: -0.7px;
+  color: var(--tx-muted);
+}
+.ti-service-tabs button:last-child {
+  border-bottom: 1px solid #c0c8b5;
+}
+.ti-service-tabs button > .ti-mono {
+  font-size: 10px;
+  color: var(--tx-muted);
+}
+.ti-service-tabs button svg {
+  margin-left: auto;
+  width: 18px;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+.ti-service-tabs button[aria-selected="true"] {
+  color: var(--tx-ink);
+}
+.ti-service-tabs button[aria-selected="true"] > .ti-mono,
+.ti-service-tabs button[aria-selected="true"] svg {
+  color: var(--tx-red);
+  opacity: 1;
+}
+.ti-service-tabs button:hover {
+  color: var(--tx-red);
+}
+.ti-service-panel {
+  border-top: 1px solid #c0c8b5;
+  padding-top: 28px;
+  min-height: 415px;
+  min-width: 0;
+}
+.ti-service-panel > div > .ti-mono {
+  color: var(--tx-red);
+}
+.ti-service-panel h3 {
+  font-size: 37px;
+  line-height: 1.16;
+  letter-spacing: -1.5px;
+  font-weight: 500;
+  max-width: 480px;
+  margin: 22px 0;
+}
+.ti-service-panel p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: #5f6956;
+  max-width: 540px;
+}
+.ti-service-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0;
+  display: grid;
+  gap: 13px;
+}
+.ti-service-panel li {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+}
+.ti-service-panel li > span {
+  color: var(--tx-red);
+}
+.ti-service-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  border-top: 1px solid #c0c8b5;
+  padding-top: 22px;
+}
+.ti-service-bottom > span {
+  font-size: 11px;
+  color: #5f6956;
+}
+.ti-service-bottom .ti-button {
+  min-height: 46px;
+  padding: 13px 18px;
+  font-size: 12px;
+}
+.ti-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--tx-line);
+}
+.ti-process-grid > div {
+  border-right: 1px solid var(--tx-line);
+  padding: 28px;
+}
+.ti-process-grid > div:first-child {
+  padding-left: 0;
+}
+.ti-process-grid > div:last-child {
+  border-right: 0;
+}
+.ti-process-grid .ti-mono {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--tx-red);
+}
+.ti-process-grid h3 {
+  font-size: 31px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  margin: 35px 0 18px;
+}
+.ti-process-grid p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--tx-muted);
+  min-height: 104px;
+}
+.ti-process-output {
+  display: block;
+  margin-top: 24px;
+  font: 9px/1.5 monospace;
+  letter-spacing: 0.6px;
+  color: var(--tx-muted);
+}
+.ti-division-note {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  border-top: 1px solid var(--tx-line);
+  margin-top: 40px;
+  padding-top: 30px;
+}
+.ti-division-note p {
+  font-size: 13px;
+  color: var(--tx-muted);
+}
+.ti-division-note a {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 13px;
+}
+.ti-division-note a:hover {
+  color: var(--tx-red);
+}
+.ti-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8%;
+  border-top: 1px solid var(--tx-line);
+}
+.ti-contact h2 {
+  font-size: clamp(45px, 5vw, 80px);
+  margin: 28px 0;
+}
+.ti-contact > div > p {
+  max-width: 410px;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--tx-muted);
+}
+.ti-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 23px;
+  letter-spacing: -0.6px;
+  margin-top: 32px;
+}
+.ti-inquiry {
+  padding-top: 8px;
+  min-width: 0;
+}
+.ti-inquiry fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 25px;
+  min-width: 0;
+}
+.ti-inquiry legend,
+.ti-brief-label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+.ti-interest-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.ti-interest-grid label {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  min-height: 54px;
+  border: 1px solid var(--tx-line);
+  font-size: 12px;
+  cursor: pointer;
+}
+.ti-interest-grid label.is-selected {
+  color: var(--tx-paper);
+  background: var(--tx-ink);
+  border-color: var(--tx-ink);
+}
+.ti-interest-grid input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.ti-interest-grid label:has(input:focus-visible) {
+  outline: 2px solid var(--tx-red);
+  outline-offset: 3px;
+}
+.ti-interest-grid input:focus-visible {
+  outline: none;
+}
+.ti-interest-grid label > span:last-child {
+  font-size: 18px;
+}
+.ti-brief-label span {
+  color: var(--tx-muted);
+}
+.ti-inquiry textarea {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--tx-line);
+  border-radius: 0;
+  resize: vertical;
+  padding: 16px;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 23px;
+  min-height: 100px;
+}
+.ti-inquiry textarea::placeholder {
+  color: var(--tx-muted);
+}
+.ti-inquiry .ti-email-note {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--tx-muted);
+  margin-top: 18px;
+  max-width: 380px;
+}
+.ti-email-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ti-project-reference {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  border-left: 2px solid var(--tx-red);
+  background: var(--ti-sage);
+  margin-bottom: 24px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.ti-project-reference button {
+  min-width: 32px;
+  min-height: 32px;
+  font-size: 24px;
+}
+.ti-anchor {
+  scroll-margin-top: 100px;
+}
+@media (max-width: 1100px) {
+  .ti-hero-layout {
+    gap: 4%;
+  }
+  .ti-hero h1 {
+    font-size: 5.5vw;
+  }
+  .ti-hero-copy > p {
+    font-size: 16px;
+  }
+  .ti-demo {
+    padding: 17px;
+  }
+  .ti-demo-meta {
+    font-size: 7px;
+    letter-spacing: 0.7px;
+  }
+  .ti-dashboard-tabs {
+    gap: 18px;
+  }
+  .ti-tab-index {
+    display: none;
+  }
+  .ti-task {
+    padding: 8px;
+  }
+  .ti-task h4 {
+    font-size: 9px;
+  }
+  .ti-demo-bottom .ti-mono {
+    font-size: 7px;
+  }
+  .ti-demo-bottom > span:last-child {
+    font-size: 9px;
+  }
+  .ti-capability-strip {
+    gap: 18px;
+  }
+  .ti-capability-strip > span:not(.ti-mono) {
+    font-size: 13px;
+  }
+  .ti-section-heading {
+    grid-template-columns: 1.8fr 1fr;
+  }
+  .ti-section-heading > .ti-mono {
+    grid-column: 1 / -1;
+  }
+  .ti-project-grid {
+    gap: 20px;
+  }
+  .ti-project h3 {
+    font-size: 21px;
+  }
+  .ti-project-image {
+    padding: 12px;
+  }
+  .ti-services-layout {
+    gap: 5%;
+  }
+  .ti-service-tabs button {
+    font-size: 18px;
+    gap: 16px;
+  }
+  .ti-service-panel h3 {
+    font-size: 32px;
+  }
+  .ti-process-grid > div {
+    padding: 24px 18px;
+  }
+  .ti-process-grid p {
+    min-height: 150px;
+  }
+}
+@media (max-width: 850px) {
+  .ti-topline > span:last-child {
+    display: none;
+  }
+  .ti-hero-layout {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding-top: 45px;
+  }
+  .ti-hero h1 {
+    font-size: clamp(52px, 9vw, 75px);
+  }
+  .ti-hero-copy > p {
+    max-width: 500px;
+  }
+  .ti-hero-kicker {
+    margin-bottom: 25px;
+  }
+  .ti-hero-footnote {
+    margin-top: 30px;
+  }
+  .ti-demo {
+    padding: 25px;
+  }
+  .ti-demo-meta {
+    font-size: 9px;
+  }
+  .ti-dashboard-body {
+    min-height: 395px;
+    padding: 24px;
+  }
+  .ti-dashboard-title h3 {
+    font-size: 23px;
+  }
+  .ti-tab-index {
+    display: inline;
+  }
+  .ti-dashboard-tabs {
+    gap: 35px;
+  }
+  .ti-dashboard-tabs button {
+    font-size: 12px;
+  }
+  .ti-task {
+    padding: 13px;
+  }
+  .ti-task h4 {
+    font-size: 12px;
+  }
+  .ti-task p {
+    font-size: 10px;
+  }
+  .ti-task-footer {
+    font-size: 9px;
+  }
+  .ti-demo-bottom .ti-mono {
+    font-size: 8px;
+  }
+  .ti-demo-bottom > span:last-child {
+    font-size: 11px;
+  }
+  .ti-capability-strip {
+    flex-wrap: wrap;
+    gap: 20px 35px;
+  }
+  .ti-capability-strip > .ti-mono {
+    width: 100%;
+  }
+  .ti-capability-strip > .ti-mono br {
+    display: none;
+  }
+  .ti-section {
+    padding: 70px 4.2%;
+  }
+  .ti-project-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .ti-project {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    padding-bottom: 20px;
+  }
+  .ti-project-image {
+    align-self: start;
+    padding: 16px;
+  }
+  .ti-project-copy {
+    padding-top: 0;
+  }
+  .ti-project h3 {
+    font-size: 25px;
+  }
+  .ti-project-copy > p {
+    min-height: 0;
+  }
+  .ti-services-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .ti-service-panel {
+    min-height: 400px;
+  }
+  .ti-service-tabs button {
+    padding: 20px 0;
+    font-size: 20px;
+  }
+  .ti-process-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ti-process-grid > div,
+  .ti-process-grid > div:first-child {
+    padding: 25px;
+  }
+  .ti-process-grid > div:nth-child(2) {
+    border-right: 0;
+  }
+  .ti-process-grid > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--tx-line);
+  }
+  .ti-process-grid p {
+    min-height: 95px;
+  }
+  .ti-division-note {
+    align-items: start;
+    flex-direction: column;
+  }
+  .ti-contact {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .ti-contact h2 {
+    font-size: 58px;
+  }
+}
+@media (max-width: 500px) {
+  .ti-mono {
+    font-size: 9px;
+    letter-spacing: 0.8px;
+  }
+  .ti-hero {
+    padding: 25px 6% 40px;
+  }
+  .ti-topline {
+    font-size: 8px;
+  }
+  .ti-hero h1 {
+    font-size: clamp(40px, 10.2vw, 53px);
+  }
+  .ti-hero-kicker {
+    font-size: 7px;
+  }
+  .ti-hero-copy > p {
+    font-size: 15px;
+    margin-top: 25px;
+  }
+  .ti-actions {
+    gap: 14px 24px;
+  }
+  .ti-button {
+    padding: 16px 18px;
+    font-size: 12px;
+    gap: 20px;
+  }
+  .ti-hero-footnote {
+    font-size: 7px;
+    letter-spacing: 0.8px;
+  }
+  .ti-demo {
+    padding: 12px;
+  }
+  .ti-demo-meta {
+    font-size: 6px;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  .ti-dashboard-header {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  .ti-workspace-path {
+    display: none;
+  }
+  .ti-dashboard-tabs {
+    padding: 0 12px;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  .ti-dashboard-tabs button {
+    font-size: 10px;
+  }
+  .ti-tab-index {
+    display: none;
+  }
+  .ti-dashboard-body {
+    padding: 18px 12px 12px;
+    min-height: 392px;
+  }
+  .ti-dashboard-title h3 {
+    font-size: 17px;
+  }
+  .ti-dashboard-title .ti-mono {
+    font-size: 6px;
+  }
+  .ti-demo-metrics span {
+    font-size: 8px;
+  }
+  .ti-demo-metrics strong {
+    font-size: 22px;
+  }
+  .ti-demo-metrics > div {
+    padding: 0 9px;
+  }
+  .ti-board {
+    gap: 5px;
+  }
+  .ti-board-label {
+    font-size: 8px;
+    gap: 3px;
+  }
+  .ti-task {
+    padding: 7px;
+  }
+  .ti-task h4 {
+    font-size: 9px;
+    overflow-wrap: anywhere;
+  }
+  .ti-task p {
+    font-size: 7px;
+  }
+  .ti-task-code {
+    font-size: 6px;
+  }
+  .ti-task-footer {
+    font-size: 6px;
+  }
+  .ti-task-footer b {
+    padding: 3px;
+    font-size: 6px;
+  }
+  .ti-dashboard-footer {
+    padding: 10px 12px;
+    font-size: 5px;
+  }
+  .ti-dashboard-footer > span:last-child {
+    display: none;
+  }
+  .ti-demo-bottom .ti-mono {
+    font-size: 6px;
+  }
+  .ti-demo-bottom > span:last-child {
+    font-size: 8px;
+    gap: 4px;
+  }
+  .ti-inventory-table {
+    font-size: 10px;
+  }
+  .ti-stock,
+  .ti-stock-low {
+    font-size: 8px;
+  }
+  .ti-capability-strip {
+    margin: 0 6%;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .ti-capability-strip > .ti-mono {
+    grid-column: 1 / -1;
+    font-size: 8px;
+  }
+  .ti-section {
+    padding: 60px 6%;
+  }
+  .ti-section-heading {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 35px;
+  }
+  .ti-section-heading > p {
+    padding-top: 0;
+  }
+  .ti-section h2 {
+    font-size: 36px;
+  }
+  .ti-project {
+    display: block;
+  }
+  .ti-project-copy {
+    padding-top: 25px;
+  }
+  .ti-project h3 {
+    font-size: 27px;
+  }
+  .ti-service-panel h3 {
+    font-size: 31px;
+  }
+  .ti-service-panel p {
+    font-size: 14px;
+  }
+  .ti-process-grid > div,
+  .ti-process-grid > div:first-child {
+    padding: 22px 13px;
+  }
+  .ti-process-grid h3 {
+    font-size: 27px;
+  }
+  .ti-process-grid p {
+    font-size: 12px;
+    min-height: 125px;
+  }
+  .ti-contact h2 {
+    font-size: clamp(36px, 10vw, 49px);
+  }
+  .ti-interest-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:has(.ti-page) {
+    scroll-behavior: auto;
+  }
+  .ti-page *,
+  .ti-page *::before,
+  .ti-page *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
