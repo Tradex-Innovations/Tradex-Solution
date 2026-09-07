@@ -29,77 +29,86 @@ export function useInterfaceSound() {
     };
   }, []);
 
-  const play = useCallback((sound: Sound = "click") => {
-    if (!enabledRef.current || document.hidden || !window.AudioContext) return;
-    const now = performance.now();
-    if (now - lastPlayed.current < 110) return;
-    lastPlayed.current = now;
-    try {
-      const context = contextRef.current ?? new AudioContext();
-      contextRef.current = context;
-      // Called only from a click or pointer gesture. No autoplay on page load.
-      const start = () => {
-        if (!enabledRef.current || context.state !== "running") return;
-        const time = context.currentTime;
-        const gain = context.createGain();
-        gain.connect(context.destination);
-        if (sound === "fabric") {
-          const length = Math.floor(context.sampleRate * 0.3);
-          const buffer = context.createBuffer(1, length, context.sampleRate);
-          const samples = buffer.getChannelData(0);
-          for (let i = 0; i < length; i++)
-            samples[i] = (Math.random() * 2 - 1) * (1 - i / length);
-          const source = context.createBufferSource();
-          const filter = context.createBiquadFilter();
-          filter.type = "bandpass";
-          filter.frequency.value = 1400;
-          filter.Q.value = 0.7;
-          source.buffer = buffer;
-          source.connect(filter);
-          filter.connect(gain);
-          gain.gain.setValueAtTime(0, time);
-          gain.gain.linearRampToValueAtTime(0.045, time + 0.035);
-          gain.gain.exponentialRampToValueAtTime(0.001, time + 0.3);
-          source.onended = () => {
-            source.disconnect();
-            filter.disconnect();
-            gain.disconnect();
-          };
-          source.start();
-        } else {
-          const oscillator = context.createOscillator();
-          const duration = sound === "transition" ? 0.32 : 0.075;
-          oscillator.type = "sine";
-          oscillator.frequency.setValueAtTime(
-            sound === "transition" ? 220 : 720,
-            time,
-          );
-          oscillator.frequency.exponentialRampToValueAtTime(
-            sound === "transition" ? 440 : 400,
-            time + duration,
-          );
-          gain.gain.setValueAtTime(0, time);
-          gain.gain.linearRampToValueAtTime(0.035, time + 0.008);
-          gain.gain.exponentialRampToValueAtTime(0.001, time + duration);
-          oscillator.connect(gain);
-          oscillator.onended = () => {
-            oscillator.disconnect();
-            gain.disconnect();
-          };
-          oscillator.start(time);
-          oscillator.stop(time + duration);
-        }
-      };
-      if (context.state === "suspended")
-        void context
-          .resume()
-          .then(start)
-          .catch(() => {});
-      else start();
-    } catch {
-      /* Sound is an optional enhancement. */
-    }
-  }, []);
+  const play = useCallback(
+    (sound: Sound = "click", options: { allowResume?: boolean } = {}) => {
+      if (!enabledRef.current || document.hidden || !window.AudioContext)
+        return false;
+      const now = performance.now();
+      if (now - lastPlayed.current < 110) return false;
+      try {
+        const context = contextRef.current ?? new AudioContext();
+        contextRef.current = context;
+        // An intro may try an already-permitted context without queuing audio
+        // that would unexpectedly start after a later gesture.
+        if (context.state === "suspended" && options.allowResume === false)
+          return false;
+        lastPlayed.current = now;
+        const start = () => {
+          if (!enabledRef.current || context.state !== "running") return;
+          const time = context.currentTime;
+          const gain = context.createGain();
+          gain.connect(context.destination);
+          if (sound === "fabric") {
+            const length = Math.floor(context.sampleRate * 0.3);
+            const buffer = context.createBuffer(1, length, context.sampleRate);
+            const samples = buffer.getChannelData(0);
+            for (let i = 0; i < length; i++)
+              samples[i] = (Math.random() * 2 - 1) * (1 - i / length);
+            const source = context.createBufferSource();
+            const filter = context.createBiquadFilter();
+            filter.type = "bandpass";
+            filter.frequency.value = 1400;
+            filter.Q.value = 0.7;
+            source.buffer = buffer;
+            source.connect(filter);
+            filter.connect(gain);
+            gain.gain.setValueAtTime(0, time);
+            gain.gain.linearRampToValueAtTime(0.045, time + 0.035);
+            gain.gain.exponentialRampToValueAtTime(0.001, time + 0.3);
+            source.onended = () => {
+              source.disconnect();
+              filter.disconnect();
+              gain.disconnect();
+            };
+            source.start();
+          } else {
+            const oscillator = context.createOscillator();
+            const duration = sound === "transition" ? 0.32 : 0.075;
+            oscillator.type = "sine";
+            oscillator.frequency.setValueAtTime(
+              sound === "transition" ? 220 : 720,
+              time,
+            );
+            oscillator.frequency.exponentialRampToValueAtTime(
+              sound === "transition" ? 440 : 400,
+              time + duration,
+            );
+            gain.gain.setValueAtTime(0, time);
+            gain.gain.linearRampToValueAtTime(0.035, time + 0.008);
+            gain.gain.exponentialRampToValueAtTime(0.001, time + duration);
+            oscillator.connect(gain);
+            oscillator.onended = () => {
+              oscillator.disconnect();
+              gain.disconnect();
+            };
+            oscillator.start(time);
+            oscillator.stop(time + duration);
+          }
+        };
+        if (context.state === "suspended")
+          void context
+            .resume()
+            .then(start)
+            .catch(() => {});
+        else start();
+        return true;
+      } catch {
+        /* Sound is an optional enhancement. */
+        return false;
+      }
+    },
+    [],
+  );
 
   const toggle = useCallback(() => {
     const next = !enabledRef.current;
