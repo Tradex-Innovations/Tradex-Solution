@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ThreadIntro from "@/components/brand/ThreadIntro";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-ink font-sans text-zinc-100 antialiased">{children}</body>
+      <body className="bg-ink font-sans text-zinc-100 antialiased">
+        <ThreadIntro>{children}</ThreadIntro>
+      </body>
     </html>
   );
 }
