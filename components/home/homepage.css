@@ -65,23 +65,6 @@
   height: auto;
   filter: url(#tx-logo-dark-lettering);
 }
-.tx-wordmark {
-  font-size: 44px;
-  letter-spacing: -3.5px;
-  font-weight: 800;
-  line-height: 1;
-  display: inline-flex;
-  align-items: baseline;
-}
-.tx-wordmark-e {
-  color: var(--tx-red);
-}
-.tx-wordmark-dot {
-  font-size: 12px;
-  letter-spacing: 0;
-  align-self: flex-start;
-  margin: 5px 0 0 4px;
-}
 .tx-desktop-nav {
   display: flex;
   gap: 34px;
@@ -952,9 +935,11 @@
   gap: 6vw;
   align-items: start;
 }
-.tx-footer .tx-wordmark {
-  font-size: 32px;
-  letter-spacing: -2.5px;
+.tx-footer-logo {
+  display: block;
+  width: 132px;
+  height: auto;
+  filter: url(#tx-logo-dark-lettering);
 }
 .tx-footer-brand p {
   margin: 17px 0 0;
@@ -1098,10 +1083,6 @@
   .tx-header {
     height: 76px;
     margin: 0 6%;
-  }
-  .tx-wordmark {
-    font-size: 36px;
-    letter-spacing: -3px;
   }
   .tx-desktop-nav,
   .tx-header-cta {

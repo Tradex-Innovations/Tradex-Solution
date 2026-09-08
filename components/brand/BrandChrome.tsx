@@ -29,15 +29,6 @@ export function Arrow({
   );
 }
 
-function Wordmark() {
-  return (
-    <span className="tx-wordmark">
-      trad<span className="tx-wordmark-e">e</span>x
-      <span className="tx-wordmark-dot">®</span>
-    </span>
-  );
-}
-
 export function BrandHeader({
   enabled,
   toggle,
@@ -181,7 +172,15 @@ export function BrandFooter() {
       <div className="tx-footer-main">
         <div className="tx-footer-brand">
           <Link href="/" aria-label="Tradex home">
-            <Wordmark />
+            <Image
+              src={getAssetPath(
+                "/Gemini_Generated_Image_v1z8tzv1z8tzv1z8-removebg-preview.png",
+              )}
+              alt="Tradex Solution"
+              width={786}
+              height={317}
+              className="tx-footer-logo"
+            />
           </Link>
           <p>Apparel technology. Custom software.</p>
         </div>
