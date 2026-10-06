@@ -197,7 +197,7 @@ export function BrandFooter() {
           <div>
             <span className="tx-footer-label">Contact</span>
             <a href="mailto:info@tradexsolution.com">info@tradexsolution.com</a>
-            <a href="tel:+94778745847">+94 77 874 5847</a>
+            <a href="tel:+94783100101">0783100101</a>
           </div>
           <div>
             <span className="tx-footer-label">Hours</span>

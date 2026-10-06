@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   Arrow,
   BrandFooter,
@@ -478,12 +479,42 @@ function Dashboard({ play }: { play: () => void }) {
 }
 
 export default function TradexInnovationPage() {
+  const pageRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
   const { enabled, toggle, play } = useInterfaceSound();
   const [service, setService] = useState(0);
   const [interest, setInterest] = useState(services[0].name);
   const [brief, setBrief] = useState("");
   const [project, setProject] = useState("");
   const selectedService = services[service];
+  useEffect(() => {
+    const page = pageRef.current;
+    if (!page || window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+      return;
+
+    const targets = page.querySelectorAll<HTMLElement>("[data-ti-reveal]");
+    if (!("IntersectionObserver" in window)) {
+      targets.forEach((target) => target.classList.add("is-visible"));
+      return;
+    }
+
+    page.classList.add("ti-motion-ready");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.08 },
+    );
+    targets.forEach((target) => observer.observe(target));
+    return () => {
+      observer.disconnect();
+      page.classList.remove("ti-motion-ready");
+    };
+  }, []);
   const chooseService = (index: number) => {
     setService(index);
     play("transition");
@@ -495,7 +526,7 @@ export default function TradexInnovationPage() {
   };
   const emailHref = `mailto:info@tradexsolution.com?subject=${encodeURIComponent(`Tradex Innovation: ${interest}`)}&body=${encodeURIComponent(`Hello Tradex Innovation,\n\nI'm interested in ${interest.toLowerCase()}.\n${project ? `Project reference: ${project}\n` : ""}\n${brief.trim() || "What I'd like to build:"}\n\nCompany:\nContact number:\n`)}`;
   return (
-    <main className="tx-home ti-page" id="top">
+    <main className="tx-home ti-page" id="top" ref={pageRef}>
       <a className="tx-skip" href="#solutions">
         Skip to software services
       </a>
@@ -562,7 +593,7 @@ export default function TradexInnovationPage() {
       >
         <div className="ti-section-heading">
           <span className="ti-mono">01 / SELECTED WORK</span>
-          <h2 id="ti-projects-title">
+          <h2 id="ti-projects-title" data-ti-reveal="heading">
             Real work.
             <br />
             <em>Thoughtfully built.</em>
@@ -574,7 +605,11 @@ export default function TradexInnovationPage() {
         </div>
         <div className="ti-project-grid">
           {projects.map((item, index) => (
-            <article key={item.title} className="ti-project">
+            <article
+              key={item.title}
+              className="ti-project"
+              data-ti-reveal="project"
+            >
               <div className="ti-project-image">
                 <span className="ti-project-number ti-mono">
                   0{index + 1} / TRADEX INNOVATION
@@ -628,7 +663,7 @@ export default function TradexInnovationPage() {
       >
         <div className="ti-section-heading">
           <span className="ti-mono">02 / WHAT WE BUILD</span>
-          <h2 id="ti-services-title">
+          <h2 id="ti-services-title" data-ti-reveal="heading">
             Start with your need.
             <br />
             <em>Build the right thing.</em>
@@ -686,29 +721,44 @@ export default function TradexInnovationPage() {
             aria-labelledby={`service-tab-${service}`}
             tabIndex={0}
           >
-            <div className="ti-panel-enter" key={service}>
-              <span className="ti-mono">{selectedService.visual}</span>
-              <h3>{selectedService.title}</h3>
-              <p>{selectedService.description}</p>
-              <ul>
-                {selectedService.points.map((point) => (
-                  <li key={point}>
-                    <span aria-hidden="true">↗</span>
-                    {point}
-                  </li>
-                ))}
-              </ul>
-              <div className="ti-service-bottom">
-                <span>{selectedService.deliverable}</span>
-                <a
-                  className="ti-button"
-                  href="#contact"
-                  onClick={() => inquire(selectedService.name)}
-                >
-                  Let’s build it <Arrow diagonal />
-                </a>
-              </div>
-            </div>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={service}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={
+                  prefersReducedMotion
+                    ? { opacity: 1, y: 0 }
+                    : { opacity: 0, y: -4 }
+                }
+                transition={{
+                  duration: prefersReducedMotion ? 0 : 0.28,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                <span className="ti-mono">{selectedService.visual}</span>
+                <h3>{selectedService.title}</h3>
+                <p>{selectedService.description}</p>
+                <ul>
+                  {selectedService.points.map((point) => (
+                    <li key={point}>
+                      <span aria-hidden="true">↗</span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+                <div className="ti-service-bottom">
+                  <span>{selectedService.deliverable}</span>
+                  <a
+                    className="ti-button"
+                    href="#contact"
+                    onClick={() => inquire(selectedService.name)}
+                  >
+                    Let’s build it <Arrow diagonal />
+                  </a>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </section>
@@ -719,7 +769,7 @@ export default function TradexInnovationPage() {
       >
         <div className="ti-section-heading">
           <span className="ti-mono">03 / HOW WE WORK</span>
-          <h2 id="ti-process-title">
+          <h2 id="ti-process-title" data-ti-reveal="heading">
             A shared process.
             <br />
             <em>A clear next step.</em>
@@ -729,7 +779,7 @@ export default function TradexInnovationPage() {
             conversation going as the product takes shape.
           </p>
         </div>
-        <div className="ti-process-grid">
+        <div className="ti-process-grid" data-ti-reveal="process">
           {process.map((item, index) => (
             <div key={item.title}>
               <span className="ti-mono">
@@ -755,7 +805,7 @@ export default function TradexInnovationPage() {
       >
         <div>
           <span className="ti-mono">04 / START A CONVERSATION</span>
-          <h2 id="ti-contact-title">
+          <h2 id="ti-contact-title" data-ti-reveal="heading">
             What could work
             <br />
             <em>better for you?</em>
@@ -764,8 +814,8 @@ export default function TradexInnovationPage() {
             Tell us about the idea you want to build or the process you want to
             improve. We’ll start from there.
           </p>
-          <a className="ti-phone" href="tel:+94778745847">
-            +94 77 874 5847 <Arrow diagonal />
+          <a className="ti-phone" href="tel:+94783100101">
+            0783100101 <Arrow diagonal />
           </a>
         </div>
         <div className="ti-inquiry">

@@ -41,7 +41,7 @@
 }
 .tx-header {
   height: 100px;
-  margin: 0 4.2%;
+  padding: 0 4.2%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -990,11 +990,14 @@
   font-size: 10px;
 }
 @media (min-width: 1600px) {
-  .tx-header,
   .tx-footer {
     max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
+  }
+  .tx-header {
+    padding-left: max(4.2%, calc((100vw - 1600px) / 2));
+    padding-right: max(4.2%, calc((100vw - 1600px) / 2));
   }
   .tx-section,
   .tx-hero-sticky {
@@ -1082,7 +1085,7 @@
   }
   .tx-header {
     height: 76px;
-    margin: 0 6%;
+    padding: 0 6%;
   }
   .tx-desktop-nav,
   .tx-header-cta {
@@ -1105,8 +1108,8 @@
     display: flex;
     position: absolute;
     top: 75px;
-    left: -7%;
-    right: -7%;
+    left: 0;
+    right: 0;
     background: var(--tx-paper);
     padding: 20px 7% 30px;
     box-shadow: 0 15px 20px #2221;

@@ -684,8 +684,8 @@ export default function TradexSolutionPage() {
             A new cutting machine, the right software license, or help with your
             existing setup. Tell us where you want to go.
           </p>
-          <a className="ts-contact-phone" href="tel:+94778745847">
-            +94 77 874 5847 <Arrow diagonal />
+          <a className="ts-contact-phone" href="tel:+94783100101">
+            0783100101 <Arrow diagonal />
           </a>
         </div>
         <div className="ts-inquiry">
